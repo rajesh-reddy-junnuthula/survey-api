@@ -16,7 +16,7 @@ public class ServiceImpl  implements  SurveyService{
 
     private static final AtomicLong counter = new AtomicLong(0);
 
-
+    @Autowired
     private AssessmentClient client;
 
     @Autowired
@@ -44,7 +44,7 @@ public class ServiceImpl  implements  SurveyService{
         for (Survey survey : surveys) {
             FullResponse fr = new FullResponse();
             long id = counter.incrementAndGet();
-            fr.setSurveyId(id);
+            fr.setSurveyId(survey.getSurveyId());
             fr.setDomain(survey.getDomain());
             fr.setStatus(survey.getStatus());
             fr.setEmail(survey.getEmail());
